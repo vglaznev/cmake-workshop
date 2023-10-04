@@ -1,14 +1,9 @@
-# FIXME set minimum cmake version
-cmake_minimum_required(...)
+cmake_minimum_required(VERSION 3.18)
 
-# FIXME declare project giving project name and language
-project(... LANGUAGES ...)
+project(01_libraries_cxx LANGUAGES CXX)
 
-# FIXME create the message library from the source files
-add_library(...)
+add_library(message-library Message.hpp Message.cpp)
 
-# FIXME create hello-world executable from hello-world.cpp
-add_executable(hello-world ...)
+add_executable(hello-world hello-world.cpp)
 
-# FIXME link hello-world to the message library
-target_link_libraries(hello-world ...)
+target_link_libraries(hello-world PRIVATE message-library)
